@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/weightEditText"
+        android:layout_width="249dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:text="80"
+        app:layout_constraintBottom_toTopOf="@+id/Weight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Weight"
+        android:layout_width="237dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="47dp"
+        android:text="Weight"
+        app:layout_constraintBottom_toTopOf="@+id/heightEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weightEditText" />
+
+    <EditText
+        android:id="@+id/heightEditText"
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:text="180"
+        app:layout_constraintBottom_toTopOf="@+id/height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Weight" />
+
+    <TextView
+        android:id="@+id/height"
+        android:layout_width="237dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="Height"
+        app:layout_constraintBottom_toTopOf="@+id/bmiButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heightEditText" />
+
+    <Button
+        android:id="@+id/bmiButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="calculateBmi"
+        android:text="Calculate BMI"
+        app:layout_constraintBottom_toTopOf="@+id/bmiResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/height" />
+
+    <TextView
+        android:id="@+id/bmiResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="142dp"
+        android:text="Click Calculate to get your BMI"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmiButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
