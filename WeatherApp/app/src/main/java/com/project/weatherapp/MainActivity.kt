@@ -1,5 +1,6 @@
 package com.project.weatherapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,15 +15,12 @@ import com.android.volley.toolbox.Volley
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
-    lateinit var queue : RequestQueue;
     lateinit var url: String;
     var cityName = "Tampere"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        queue = Volley.newRequestQueue(this);
     }
 
     fun getWeatherData(view: View){
@@ -32,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         Response.Listener<String>{ response -> handleResponse(response)},
         Response.ErrorListener { handleVolleyError()});
 
-        queue.add(stringRequest);
+        VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
     }
 
     private fun handleResponse(response: String){
@@ -42,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         val windSpeed = weatherObject.getJSONObject("wind").getDouble("speed");
 
 
-        findViewById<TextView>(R.id.cityTextView).text = cityName;
+        findViewById<TextView>(R.id.locationTextView).text = cityName;
         findViewById<TextView>(R.id.weatherTextView).text = weatherType;
         findViewById<TextView>(R.id.temperatureTextView).text = temperature.toString() + "C";
         findViewById<TextView>(R.id.windspeedTextView).text = windSpeed.toString() + "m/s";
@@ -53,6 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showForecast(view: View) {
-        
+        val intent = Intent(this, ForecastActivity::class.java);
+        startActivity(intent);
     }
 }
