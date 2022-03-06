@@ -71,7 +71,6 @@ class MainActivity : AppCompatActivity() {
     private fun degreesToCompass(windDirection: Int): String {
         val value = Math.floor((windDirection/45)+0.5)
         val directions = arrayOf("↑ N", "↗ NE", "→ E", "↘ SE", "↓ S", "↙ SW", "← W", "↖ NW");
-        Toast.makeText(this, "${windDirection}", Toast.LENGTH_LONG).show();
         return directions[(value % 8).toInt()];
     }
 
